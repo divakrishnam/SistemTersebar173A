@@ -1,6 +1,6 @@
 # Sistem Tersebar
 
-Buku Kecerdasan Buatan D4TI3A Angkatan 2017
+Buku Sistem Tersebar D4TI3A Angkatan 2017
 
 ## Penilaian
 
