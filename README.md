@@ -1,4 +1,4 @@
-# Kecerdasan Buatan
+# Sistem Tersebar
 
 Buku Kecerdasan Buatan D4TI3A Angkatan 2017
 
