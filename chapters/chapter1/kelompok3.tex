@@ -1,3 +1,49 @@
+\section{1174009 - Dwi Yulianingsih}
+\subsection{Parallel Programming Models}
+\hfill\break
+Model pemrograman paralel ada sebagai abstraksi arsitektur perangkat keras dan memori. Faktanya, model ini tidak spesifik dan tidak merujuk pada jenis mesin atau arsitektur memori tertentu. Mereka dapat diimplementasikan (setidaknya secara teoritis) pada semua jenis mesin. Dibandingkan dengan subdivisi sebelumnya, model pemrograman ini dibuat pada tingkat yang lebih tinggi dan mewakili cara di mana perangkat lunak harus diimplementasikan untuk melakukan perhitungan paralel. Setiap model memiliki caranya sendiri untuk berbagi informasi dengan prosesor lain untuk mengakses memori dan membagi pekerjaan. Secara absolut, tidak ada satu model yang lebih baik dari yang lain. Oleh karena itu, solusi terbaik untuk diterapkan akan sangat tergantung pada masalah yang harus ditangani dan diselesaikan oleh seorang programmer. 
+Model yang paling banyak digunakan untuk pemrograman paralel adalah sebagai berikut: 
+\begin{itemize}
+	\item Model memori bersama 
+	\item Model multithread 
+	\item Model distribusi memori / pesan terdistribusi
+	\item Model paralel data 
+\end{itemize}
+Dalam resep ini, kami akan memberi Anda gambaran umum tentang model-model ini.
+ \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/dwi1.PNG}
+        \centering
+        \caption{PPM}
+\end{figure}
+\hfill\break
+\subsection{Shared Memory Models}
+\hfill\break
+Dalam model ini, tugas berbagi area memori tunggal di mana kita dapat membaca dan menulis secara tidak sinkron. Ada mekanisme yang memungkinkan pembuat kode untuk mengontrol akses ke memori bersama; misalnya, mengunci atau semafor. Model ini menawarkan keuntungan bahwa pembuat kode tidak perlu mengklarifikasi komunikasi antar tugas. Kerugian penting, dalam hal kinerja, adalah menjadi lebih sulit untuk memahami dan mengelola lokalitas data. Ini mengacu pada menjaga data tetap lokal untuk prosesor yang bekerja pada menghemat akses memori, penyegaran cache, dan lalu lintas bus yang terjadi ketika beberapa prosesor menggunakan data yang sama.
+ \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/dwi11.PNG}
+        \centering
+        \caption{SMM}
+\end{figure}
+\hfill\break
+\subsection{Multithread Models}
+\hfill\break
+Dalam model ini, suatu proses dapat memiliki beberapa alur eksekusi. Misalnya, bagian berurutan dibuat dan, kemudian, serangkaian tugas dibuat yang dapat dieksekusi secara paralel. Biasanya, model jenis ini digunakan pada arsitektur memori bersama. Jadi, akan sangat penting bagi kita untuk mengelola sinkronisasi antara utas, karena mereka beroperasi pada memori bersama, dan programmer harus mencegah beberapa utas dari memperbarui lokasi yang sama pada saat yang sama. CPU generasi sekarang multithreaded dalam perangkat lunak dan perangkat keras. Utas POSIX (kependekan dari Portable Operating System Interface) adalah contoh klasik dari implementasi multithreading pada perangkat lunak. Teknologi Hyper-Threading Intel mengimplementasikan multithreading pada perangkat keras dengan beralih di antara dua utas saat seseorang terhenti atau menunggu di I / O. Paralelisme dapat dicapai dari model ini, bahkan jika penyelarasan data nonlinier.
+ \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/dwi3.PNG}
+        \centering
+        \caption{MM}
+\end{figure}
+\hfill\break
+\subsection{Message Passing Models}
+\hfill\break
+Model pesan lewat biasanya diterapkan dalam kasus di mana setiap prosesor memiliki memori sendiri (sistem memori terdistribusi). Lebih banyak tugas dapat berada di mesin fisik yang sama atau pada jumlah mesin yang sewenang-wenang. Coder bertanggung jawab untuk menentukan paralelisme dan pertukaran data yang terjadi melalui pesan, dan perlu untuk meminta dan memanggil pustaka fungsi dalam kode. Beberapa contoh sudah ada sejak tahun 1980-an, tetapi hanya pada pertengahan 1990-an adalah model standar yang dibuat, mengarah ke standar de facto yang disebut Message Passing Interface (MPI).
+ \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/dwi4.PNG}
+        \centering
+        \caption{MPM}
+\end{figure}
+
+
 \section{1174027 - Harun Ar - Rasyid}
 \subsection{Introducing Python}
 \hfill\break
@@ -89,5 +135,6 @@ Python interpreter sudah menyediakan sistem bantuan yang valid.
         \caption{Hasil Dari abs document}
     \end{figure}
 \end{enumerate}
+
 \section{npm - nama}
 \subsection{kalo perlu}
