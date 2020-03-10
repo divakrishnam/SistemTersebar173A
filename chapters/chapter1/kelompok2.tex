@@ -75,10 +75,15 @@ Diagram berikut secara khusus menunjukkan area mana dari CPU yang digunakan pada
 \end{figure}
 
 \subsection{MISD}
+\textit{Multiple Instruction Single Data} \textbf{(MISD)}. Dalam model ini, prosesor, masing-masing dengan unit kontrol mereka sendiri, berbagi unit memori tunggal. Dalam setiap siklus clock, data yang diterima dari memori diproses oleh semua prosesor secara bersamaan, masing-masing sesuai dengan instruksi yang diterima dari unit kontrol. Dalam hal ini, paralelisme (paralelisme tingkat instruksi) diperoleh dengan melakukan beberapa operasi pada bagian data yang sama. Jenis masalah yang dapat dipecahkan secara efisien dalam arsitektur ini agak istimewa, seperti enkripsi data. Untuk alasan ini, komputer MISD belum menemukan ruang di sektor komersial. Komputer MISD lebih dari satu latihan intelektual daripada konfigurasi praktis
 
 \subsection{SIMD}
-
+\textit{Single Instruction Multiple Data} \textbf{(SIMD)}. Sebuah SIMD komputer terdiri dari n prosesor yang identik, masing-masing dengan memori lokal mereka sendiri, di mana dimungkinkan untuk menyimpan data. Semua prosesor bekerja di bawah kendali aliran instruksi tunggal. Selain itu, ada n data stream, satu untuk setiap prosesor. Prosesor bekerja secara simultan pada setiap langkah dan menjalankan instruksi yang sama, tetapi pada elemen data yang berbeda. Ini adalah contoh dari data tingkat paralelisme.
+SIMD arsitektur jauh lebih fleksibel daripada arsitektur MISD. Banyak masalah yang mencakup berbagai macam aplikasi dapat diselesaikan dengan algoritma paralel pada komputer SIMD. Fitur lain yang menarik adalah bahwa algoritma untuk komputer ini relatif mudah untuk merancang, menganalisis, dan menerapkan. pembatasan adalah bahwa hanya masalah yang dapat dibagi menjadi beberapa submasalah (yang semuanya identik, yang masing-masing kemudian akan diselesaikan secara simultan melalui set instruksi yang sama) dapat diatasi dengan komputer SIMD.
 \subsection{MIMD}
+\textit{Multiple Instruction Multiple Data} \textbf{MIMD}. kelas ini merupakan kelas umum dan paling kuat, menurut klasifikasi Flynn. Ini mengandung prosesor, instruksi stream, dan data stream. Setiap prosesor memiliki satuan sendiri kontrol dan memori lokal, yang membuat MIMD arsitektur lebih komputasi kuat dari arsitektur SIMD.
+Setiap prosesor beroperasi di bawah kendali aliran instruksi yang dikeluarkan oleh unit kontrol sendiri. Oleh karena itu, prosesor berpotensi dapat menjalankan program yang berbeda dengan data yang berbeda, yang memungkinkan mereka untuk memecahkan submasalah yang berbeda dan dapat menjadi bagian dari masalah yang lebih besar tunggal. Dalam MIMD, arsitektur dicapai dengan bantuan tingkat paralelisme dengan benang dan / atau proses. Ini juga berarti bahwa prosesor biasanya beroperasi asynchronous.
+
 
 \begin{figure}[H]
 	\includegraphics[width=4cm]{figures/kelompok2/chapter/5.png}
