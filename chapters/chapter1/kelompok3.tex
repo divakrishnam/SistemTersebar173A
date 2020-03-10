@@ -43,6 +43,25 @@ Model pesan lewat biasanya diterapkan dalam kasus di mana setiap prosesor memili
         \caption{MPM}
 \end{figure}
 
+\section{1174003 - Dwi Septiani Tsaniyah}
+\subsection{Data Parallel Model}
+\hfill\break
+Didalam model ini lebih banyak tugas yang beroperasi pada structure data yang sama , tetapi masuk ke dalam masing-masing tugasnya. Model ini beroperasi pada bagian data yang berbeda , tetapi dalam arsitektur memori bersama , semua tugas memiliki akses data melalui memori , dimana struktur data dibagi dan berada di memori lokal di setiap tugas. Untuk menerapkan model ini, seorang pembuat kode harus mengembangkan program yang menentukan distribusi dan penyelarasan data; misalnya, GPU generasi saat ini sangat operasional 
+Dalam resep ini, kami akan memberi Anda gambaran umum tentang model-model ini.
+ \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/septi.jpg}
+        \centering
+        \caption{DPM}
+\end{figure}
+\subsection{Merancang Program Data Parallel}
+\hfill\break
+Desain algoritma yang mengeksploitasi paralelisme didasarkan pada serangkaian operasi, yang harus dilakukan agar program dapat melakukan pekerjaan dengan benar tanpa menghasilkan sebagian atau hasil yang salah. Operasi makro yang harus dilakukan untuk yang benar paralelisasi suatu algoritma adalah sebagai berikut:
+\begin{itemize}
+	\item Dekomposisi 
+	\item Penugasan
+	\item Pengelompokan
+	\item Pemetaan
+\end{itemize}
 
 \section{1174008 - Arjun Yuda Firwanda}
 \subsection{Komputasi Paralel}
