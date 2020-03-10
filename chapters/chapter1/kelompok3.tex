@@ -108,6 +108,86 @@ Elemen utama dari arsitektur ini (yaitu, arsitektur von Neumann) adalah sebagai 
 	\item Sistem I atau  O: Ini mengacu pada data input dan output dari program..
 \end{itemize}
 
+\section{1174096 - Nico Ekklesia Sembiring}
+\subsection{Percepatan/speedup}
+Percepatan adalah ukuran yang menampilkan manfaat dari penyelesaian masalah secara paralel. Percepatan didefinisikan sebagai rasio waktu yang dibutuhkan untuk menyelesaikan masalah pada elemen pemrosesan tunggal (Ts) dengan waktu yang dibutuhkan untuk memecahkan masalah yang sama pada p identik elemen pemrosesan (Tp).
+\begin{figure}[H]
+    \includegraphics[width=4cm]{figures/kelompok3/1/speedup.png}
+    \centering
+    \caption{Rumus Percepatan}
+\end{figure}
+jika S = p, maka itu berarti bahwa kecepatan eksekusi meningkat dengan jumlah prosesor. Tentu saja, ini adalah kasus yang ideal. Sementara speedup mutlak ketika Ts adalah waktu eksekusi dari algoritma sekuensial terbaik, speedup relatif ketika Ts adalah waktu eksekusi dari algoritma paralel untuk satu prosesor. 
+\hfill\break
+Mari kita rekap kondisi ini
+\begin{enumerate}
+	\item S = p adalah percepatan linier atau ideal. 
+	\item S <p adalah percepatan nyata. 
+	\item S> p adalah percepatan superlinear.
+\end{enumerate}
+
+\subsection{Efisiensi}
+Sistem parallel dengan elemen pemrosesan p dapat memberi kita kecepatan yang sama dengan p. Namun, ini sangat jarang dicapai. Biasanya, beberapa waktu terbuang baik dalam pemalasan atau berkomunikasi. 
+\hfill\break
+Efisiensi adalah ukuran dari seberapa banyak waktu eksekusi yang dilakukan oleh elemen pemrosesan untuk melakukan pekerjaan yang bermanfaat, diberikan sebagai sebagian kecil dari waktu yang dihabiskan.
+
+\begin{figure}[H]
+    \includegraphics[width=4cm]{figures/kelompok3/1/efisiensi.png}
+    \centering
+    \caption{Rumus Efisiensi}
+\end{figure}
+Algoritma dengan speedup linier memiliki nilai E = 1. Dalam kasus lain, terdapat nilai E kurang dari 1. 
+\hfill\break
+Tiga kasus diidentifikasi sebagai berikut:
+\begin{enumerate}
+	\item Ketika E = 1, itu adalah kasus linier.  
+	\item Ketika E <1, itu adalah kasus nyata.  
+	\item Ketika E << 1, itu adalah masalah yang dapat diparalelkan dengan efisiensi rendah.
+\end{enumerate}
+\subsection{Penskalaan(Scaling)}
+Penskalaan didefinisikan sebagai kemampuan untuk menjadi efisien pada mesin paralel. Ini mengidentifikasi kekuatan komputasi (kecepatan eksekusi) secara proporsional dengan jumlah prosesor. Dengan meningkatkan ukuran masalah dan, pada saat yang sama, jumlah prosesor, tidak akan ada kerugian dalam hal kinerja. Sistem yang dapat diskalakan, tergantung pada peningkatan faktor yang berbeda, dapat mempertahankan efisiensi yang sama atau meningkatkannya.
+
+\subsection{Hukum Amdahl}
+Hukum Amdahl adalah hukum yang banyak digunakan yang digunakan untuk merancang prosesor dan algoritma paralel. Ini menyatakan bahwa speedup maksimum yang dapat dicapai dibatasi oleh komponen serial program:
+\begin{figure}[H]
+    \includegraphics[width=4cm]{figures/kelompok3/1/amdahl.png}
+    \centering
+    \caption{Rumus Hukum Amdahl}
+\end{figure}
+1 - P menunjukkan komponen serial (tidak diparalelkan) dari suatu program.
+\hfill\break
+Ini berarti bahwa, misalnya, jika suatu program di mana 90% dari kode dapat dibuat paralel, tetapi 10% harus tetap serial, maka speedup maksimum yang dapat dicapai adalah 9, bahkan untuk jumlah prosesor yang tak terbatas.
+
+\subsection{Hukum Gustafson}
+Rumus hukum Gustafson adalah sebagai berikut : 
+\begin{figure}[H]
+    \includegraphics[width=4cm]{figures/kelompok3/1/gustafson.png}
+    \centering
+    \caption{Rumus Hukum Gustafson}
+\end{figure}
+Pada persamaan berikut ini berlaku:
+\begin{enumerate}
+	\item P adalah jumlah prosesor.  
+	\item S adalah faktor percepatan.  
+	\item alpha adalah fraksi yang tidak dapat diparalelkan dari setiap proses paralel.
+\end{enumerate}
+Hukum Gustafson berbeda dengan hukum Amdahl, yang mengasumsikan bahwa keseluruhan beban kerja suatu program tidak berubah sehubungan dengan jumlah prosesor.
+\hfill\break
+Faktanya, hukum Gustafson menyatakan bahwa programmer pertama-tama mengatur waktu yang diizinkan untuk menyelesaikan masalah secara paralel dan kemudian berdasarkan pada hal itu (yaitu waktu) untuk mengukur masalah. Oleh karena itu, semakin cepat sistem paralelnya, semakin besar masalah yang dapat diselesaikan selama periode waktu yang sama.
+\hfill\break
+Efek dari hukum Gustafson adalah untuk mengarahkan tujuan penelitian komputer ke arah pemilihan atau perumusan kembali masalah sedemikian rupa sehingga solusi dari masalah yang lebih besar masih mungkin dalam jumlah waktu yang sama. Selanjutnya, undang-undang ini mendefinisikan kembali konsep efisiensi sebagai kebutuhan untuk mengurangi setidaknya bagian berurutan dari suatu program, meskipun ada peningkatan beban kerja.
+
+\subsection{Pengenalan Python}
+Python adalah bahasa pemrograman yang kuat, dinamis, dan ditafsirkan yang digunakan dalam berbagai aplikasi. Beberapa fitur-fiturnya adalah sebagai berikut:
+
+\begin{enumerate}
+	\item Sintaks yang jelas dan mudah dibaca.
+	\item Pustaka standar yang sangat luas, di mana, melalui modul perangkat lunak tambahan, kita dapat menambahkan tipe data, fungsi, dan objek. 
+	\item Pengembangan cepat dan debugging yang mudah dipelajari. Mengembangkan kode Python dalam Python bisa mencapai 10 kali lebih cepat daripada dalam kode C / C ++. Kode juga dapat berfungsi sebagai prototipe dan kemudian diterjemahkan ke dalam C / C ++.
+    \item Penanganan kesalahan berbasis pengecualian.
+    \item Fungsionalitas introspeksi yang kuat.
+    \item Kekayaan dokumentasi dan komunitas perangkat lunak.
+\end{enumerate}
+
 \section{1174027 - Harun Ar - Rasyid}
 \subsection{Introducing Python}
 \hfill\break
@@ -249,6 +329,3 @@ mengandung daftar lain.
 \item Dictionaries
 \lstinputlisting[firstline=32, lastline=36]{src/kelompok3/1/quick.py}
 \end{enumerate}
-
-\section{npm - nama}
-\subsection{kalo perlu}
