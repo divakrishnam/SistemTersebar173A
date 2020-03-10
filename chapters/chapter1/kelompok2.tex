@@ -1,0 +1,129 @@
+\section{Kenapa kita membutuhkan komputasi parallel?}
+
+Pertumbuhan daya komputasi yang disediakan oleh komputer modern telah menghasilkan masalah komputasi yang semakin kompleks dalam jangka waktu yang relatif singkat. Sampai awal 2000-an, kompleksitas ditangani dengan meningkatkan jumlah transistor serta frekuensi clock dari sistem prosesor tunggal, yang mencapai puncak 3,5-4 GHz. Namun, peningkatan jumlah transistor menyebabkan peningkatan eksponensial dari daya yang dihabiskan oleh prosesor itu sendiri. Pada dasarnya, ada, oleh karena itu, keterbatasan fisik yang mencegah peningkatan lebih lanjut dalam kinerja sistem prosesor tunggal.
+\noindent
+Untuk alasan ini, dalam beberapa tahun terakhir, produsen mikroprosesor memusatkan perhatian mereka pada sistem multi-core. Ini didasarkan pada inti dari beberapa prosesor fisik yang berbagi memori yang sama, sehingga dengan melewatkan masalah daya yang hilang yang dijelaskan sebelumnya. Dalam beberapa tahun terakhir, sistem quad-core dan octa-core juga telah menjadi standar pada konfigurasi desktop dan laptop normal.
+\noindent
+Di sisi lain, perubahan signifikan dalam perangkat keras juga menghasilkan evolusi struktur perangkat lunak, yang selalu dirancang untuk dieksekusi secara berurutan pada satu prosesor. Untuk mengambil keuntungan dari sumber daya komputasi yang lebih besar yang tersedia dengan meningkatkan jumlah prosesor, perangkat lunak yang ada harus dirancang ulang dalam bentuk yang sesuai dengan struktur paralel CPU, sehingga dapat memperoleh efisiensi yang lebih besar melalui eksekusi simultan dari unit tunggal dari beberapa bagian dari program yang sama.
+
+\section{Taksonomi Flynn}
+Taksonomi Flynn adalah sistem untuk mengklasifikasikan arsitektur komputer. Ini didasarkan pada dua konsep utama:
+
+\begin{enumerate}
+	\item Instruction flow: Suatu sistem dengan n CPU memiliki n penghitung program dan, oleh karena itu, n instruksi mengalir. Ini sesuai dengan penghitung program.
+	\item Data flow: Program yang menghitung fungsi pada daftar data memiliki aliran data. Program yang menghitung fungsi yang sama pada beberapa daftar data yang berbeda memiliki lebih banyak aliran data. Ini terdiri dari seperangkat operan.
+\end{enumerate}
+
+\noindent
+Karena instruksi dan aliran data bersifat independen, ada empat kategori mesin paralel: Single Instruction Single Data (SISD), Single Instruction Multiple Data (SIMD), Multiple Instruction Single Data (MISD), and Multiple Instruction Multiple Data (MIMD):
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/1.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\subsection{Single Instruction Single Data (SISD)}
+Sistem komputasi SISD seperti mesin von Neumann, yang merupakan mesin uniprocessor. Seperti yang Anda lihat dalam diagram taksonomi Flynn, ia menjalankan instruksi tunggal yang beroperasi pada aliran data tunggal. Di SISD, instruksi mesin diproses secara berurutan.
+
+\noindent
+Dalam siklus clock, CPU menjalankan operasi berikut:
+
+\begin{enumerate}
+	\item Fetch: CPU mengambil data dan instruksi dari area memori, yang disebut register.
+	\item Decode: CPU menerjemahkan instruksi.
+	\item Execute: Instruksi dilakukan pada data. Hasil operasi disimpan dalam register lain.
+\end{enumerate}
+
+\noindent
+Setelah tahap eksekusi selesai, CPU menetapkan dirinya untuk memulai siklus CPU lain:
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/2.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\noindent
+Algoritma yang berjalan pada komputer jenis ini bersifat berurutan (atau serial) karena tidak mengandung paralelisme. Contoh komputer SISD adalah sistem perangkat keras dengan satu CPU.
+
+\noindent
+Elemen utama dari arsitektur ini (yaitu, arsitektur von Neumann) adalah sebagai berikut:
+
+\begin{enumerate}
+	\item Central memori unit: Ini digunakan untuk menyimpan instruksi dan data program.
+	\item CPU: Ini digunakan untuk mendapatkan instruksi dan / atau data dari unit memori, yang menerjemahkan instruksi dan secara berurutan mengimplementasikannya.
+	\item The I/O system: Ini mengacu pada data input dan output dari program.
+\end{enumerate}
+
+\noindent
+Komputer prosesor tunggal konvensional diklasifikasikan sebagai sistem SISD:
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/3.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\noindent
+Diagram berikut secara khusus menunjukkan area mana dari CPU yang digunakan pada tahap pengambilan, dekode, dan eksekusi:
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/4.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\subsection{MISD}
+
+\subsection{SIMD}
+
+\subsection{MIMD}
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/5.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\section{Organisasi Memori}
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/6.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\subsection{Shared Memory}
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/7.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\subsection{Distributed Memory}
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/8.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/9.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
+
+\subsection{MPP}
+
+\subsection{Clusters of Workstations}
+
+\subsection{Heterogeneous Architectures}
+
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok2/chapter/10.png}
+	\centering
+	\caption{Kecerdasan Buatan.}
+\end{figure}
