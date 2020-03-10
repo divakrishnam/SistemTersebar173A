@@ -18,9 +18,9 @@ Taksonomi Flynn adalah sistem untuk mengklasifikasikan arsitektur komputer. Ini 
 Karena instruksi dan aliran data bersifat independen, ada empat kategori mesin paralel: Single Instruction Single Data (SISD), Single Instruction Multiple Data (SIMD), Multiple Instruction Single Data (MISD), and Multiple Instruction Multiple Data (MIMD):
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/1.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/1.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Flynn.}
 \end{figure}
 
 \subsection{Single Instruction Single Data (SISD)}
@@ -39,9 +39,9 @@ Dalam siklus clock, CPU menjalankan operasi berikut:
 Setelah tahap eksekusi selesai, CPU menetapkan dirinya untuk memulai siklus CPU lain:
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/2.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/2.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{SISD.}
 \end{figure}
 
 \noindent
@@ -60,18 +60,18 @@ Elemen utama dari arsitektur ini (yaitu, arsitektur von Neumann) adalah sebagai 
 Komputer prosesor tunggal konvensional diklasifikasikan sebagai sistem SISD:
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/3.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/3.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Algoritma SISD.}
 \end{figure}
 
 \noindent
 Diagram berikut secara khusus menunjukkan area mana dari CPU yang digunakan pada tahap pengambilan, dekode, dan eksekusi:
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/4.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/4.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Area Fetch CPU.}
 \end{figure}
 
 \subsection{MISD}
@@ -84,41 +84,44 @@ SIMD arsitektur jauh lebih fleksibel daripada arsitektur MISD. Banyak masalah ya
 \textit{Multiple Instruction Multiple Data} \textbf{MIMD}. kelas ini merupakan kelas umum dan paling kuat, menurut klasifikasi Flynn. Ini mengandung prosesor, instruksi stream, dan data stream. Setiap prosesor memiliki satuan sendiri kontrol dan memori lokal, yang membuat MIMD arsitektur lebih komputasi kuat dari arsitektur SIMD.
 Setiap prosesor beroperasi di bawah kendali aliran instruksi yang dikeluarkan oleh unit kontrol sendiri. Oleh karena itu, prosesor berpotensi dapat menjalankan program yang berbeda dengan data yang berbeda, yang memungkinkan mereka untuk memecahkan submasalah yang berbeda dan dapat menjadi bagian dari masalah yang lebih besar tunggal. Dalam MIMD, arsitektur dicapai dengan bantuan tingkat paralelisme dengan benang dan / atau proses. Ini juga berarti bahwa prosesor biasanya beroperasi asynchronous.
 
+Saat ini, arsitektur ini diterapkan untuk banyak PC, superkomputer, dan jaringan komputer. Namun, ada counter yang perlu Anda pertimbangkan: algoritma asynchronous sulit untuk merancang, menganalisis, dan menerapkan:
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/5.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/5.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{MIMD.}
 \end{figure}
 
 \section{Organisasi Memori}
+Aspek lain yang perlu kita pertimbangkan dalam rangka untuk mengevaluasi arsitektur paralel organisasi memori, atau lebih tepatnya, cara di mana data yang diakses. Tidak peduli seberapa cepat unit pengolahan, jika memori tidak dapat mempertahankan dan memberikan petunjuk dan data pada kecepatan yang cukup, maka tidak akan ada peningkatan kinerja. Masalah utama yang kita butuhkan untuk mengatasi untuk membuat waktu respon dari memori yang kompatibel dengan kecepatan prosesor adalah memori waktu siklus, yang didefinisikan sebagai waktu yang telah berlalu antara dua operasi berturut-turut. Waktu siklus prosesor biasanya lebih singkat daripada waktu siklus memori.
 
+Ketika prosesor memulai transfer ke atau dari memori, sumber daya prosesor akan tetap diduduki untuk seluruh durasi siklus memori; Selanjutnya, selama periode ini, tidak ada perangkat lain (misalnya, I / O controller, prosesor, atau bahkan prosesor yang membuat permintaan) akan dapat menggunakan memori karena transfer berlangsung:
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/6.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/6.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Memory Organization.}
 \end{figure}
 
 \subsection{Shared Memory}
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/7.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/7.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Shared Memory.}
 \end{figure}
 
 \subsection{Distributed Memory}
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/8.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/8.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Distributed Memory.}
 \end{figure}
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/9.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/9.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Distributed Memory 2.}
 \end{figure}
 
 \subsection{MPP}
@@ -128,7 +131,7 @@ Setiap prosesor beroperasi di bawah kendali aliran instruksi yang dikeluarkan ol
 \subsection{Heterogeneous Architectures}
 
 \begin{figure}[H]
-	\includegraphics[width=4cm]{figures/kelompok2/chapter/10.png}
+	\includegraphics[width=4cm]{figures/kelompok2/chapter1/10.png}
 	\centering
-	\caption{Kecerdasan Buatan.}
+	\caption{Architectures.}
 \end{figure}
