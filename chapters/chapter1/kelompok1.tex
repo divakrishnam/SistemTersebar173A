@@ -1,0 +1,156 @@
+\section{1174004 - Choirulanam}
+\subsection{Data Types}
+\begin{enumerate}
+	\hfill\break
+	Tipe data Struktur paling signifikan dalam Python adalah list, tupel, dan dictionary. Set telah diintegrasikan ke dalam Python sejak versi 2.5 (versi sebelumnya tersedia di perpustakaan set): List: Ini mirip dengan array satu dimensi, tetapi Anda dapat membuat daftar yang berisi daftar lain. Dictionary: Ini adalah array yang berisi pasangan kunci dan nilai-nilai (tabel hash). Tuples: Ini adalah objek mono-dimensi abadi. Array dapat berupa jenis apa saja, sehingga Anda dapat mencampur variabel seperti bilangan bulat dan string ke dalam daftar, kamus, dan tupel Anda. Indeks objek pertama dalam semua jenis array selalu nol. Indeks negatif diizinkan dan dihitung dari akhir array; -1 menunjukkan elemen terakhir dari array:
+	\begin{itemize}
+		\item Contoh List
+		\hfill\break
+	           \lstinputlisting[firstline=7, lastline=11]{src/kelompok1/srcsistemtersebar.py}
+		\hfill\break
+		dan berikut hasilnya:
+		\includegraphics[width=4cm]{figures/kelompok1/1/anam/list.png}
+		\centering
+		\caption{List}
+		\item Contoh Dictionary
+		\hfill\break
+	           \lstinputlisting[firstline=13, lastline=17]{src/kelompok1/srcsistemtersebar.py}
+		\hfill\break
+		dan berikut hasilnya:
+		\includegraphics[width=4cm]{figures/kelompok1/1/anam/dict.png}
+		\centering
+		\caption{Dictionary}
+		\item Contoh Tuple
+		\hfill\break
+	           \lstinputlisting[firstline=19, lastline=25]{src/kelompok1/srcsistemtersebar.py}
+		\hfill\break
+		dan berikut hasilnya:
+		\includegraphics[width=4cm]{figures/kelompok1/1/anam/tupl.png}
+		\centering
+		\caption{Tuple}
+\subsection{String}
+	\hfill\break
+	String python diindikasikan menggunakan tanda kutip tunggal (') atau ganda (") dan diizinkan menggunakan satu notasi dalam string yang dibatasi oleh yang lain:
+		\item Contoh String
+		\hfill\break
+	           \lstinputlisting[firstline=27, lastline=34]{src/kelompok1/srcsistemtersebar.py}
+		\hfill\break
+		dan berikut hasilnya:
+		\includegraphics[width=4cm]{figures/kelompok1/1/anam/string.png}
+		\centering
+		\caption{String}
+	\end{itemize}
+\end{enumerate}
+\subsection{Bukti Tidak Plagiat}
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok1/1/anam/plagiat_anam.png}
+	\centering
+	\caption{Bukti Tidak Melakukan Plagiat Chapter 1}
+\end{figure}
+\section{1174012 - Damara Benedikta}
+\subsection{Flow control }
+Flow control merupakan sebuah pengelolaan (data flow) atau aliran data antara komputer atau perangkat atau antar node dalam suatu jaringan sehingga data dapat ditangani dengan kecepatan yang efisien.
+Dimana terdapat if, for dan while. Terdapat dua jenis perualangan dalam bahasa pemrograman python, yaitu perulangan dengan for dan while
+Perulangan for disebut counted loop (perulangan yang terhitung), sementara perulangan while disebut uncounted loop (perulangan yang tak terhitung). Perbedaannya adalah perulangan for biasanya digunakan untuk mengulangi kode yang sudah diketahui banyak perulangannya. Sementara while untuk perulangan yang memiliki syarat dan tidak tentu berapa banyak perulangannya.
+Serta Kondisi If Pengambilan keputusan (kondisi if) digunakan untuk mengantisipasi kondisi yang terjadi saat jalanya program dan menentukan tindakan apa yang akan diambil sesuai dengan kondisi.
+\hfill\break
+\lstinputlisting[firstline=8, lastline=21]{src/kelompok1/perulangan.py}
+\hfill\break
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4cm]{figures/kelompok1/1/damara/o_for.PNG}
+		\caption{contoh perulangan for}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4cm]{figures/kelompok1/1/damara/o_while.PNG}
+		\caption{contoh perulangan while}
+	\end{figure}
+
+\subsection{Functions}
+Fungsi adalah bagian dari program yang dapat digunakan ulang. Hal ini bisa dicapai dengan memberi nama pada blok statemen, kemudian nama ini dapat dipanggil di manapun dalam program. Kita telah menggunakan beberapa fungsi builtin seperti range.
+Fungsi dalam Python didefinisikan menggunakan kata kunci def. Setelah def ada nama pengenal fungsi diikut dengan parameter yang diapit oleh tanda kurung dan diakhir dingan tanda titik dua 
+\hfill\break
+\lstinputlisting[firstline=23, lastline=44]{src/kelompok1/perulangan.py}
+\hfill\break
+
+\section{1174031 - Muhammad Tomy Nur Maulidy}
+\subsection{Memperkenalkan pemrograman paralel Python}
+	Python menyediakan banyak pustaka dan kerangka kerja yang memfasilitasi kinerja tinggi
+perhitungan. Namun, melakukan pemrograman paralel dengan Python bisa sangat berbahaya
+karena Global Interpreter Lock (GIL).
+Bahkan, interpreter Python yang paling luas dan banyak digunakan, CPython, dikembangkan di
+bahasa pemrograman C. Penerjemah CPython membutuhkan GIL untuk keamanan thread
+operasi. Penggunaan GIL menyiratkan bahwa Anda akan menemukan kunci global ketika Anda mencoba
+untuk mengakses objek Python yang ada di dalam utas. Dan hanya satu utas dalam satu waktu yang bisa
+memperoleh kunci untuk objek Python atau API C.
+Untungnya, masalahnya tidak terlalu serius, karena, di luar ranah GIL, kita bisa leluasa menggunakannya
+paralelisme. Kategori ini mencakup semua topik yang akan kita bahas dalam bab-bab berikutnya,
+termasuk multiprocessing, komputasi terdistribusi, dan komputasi GPU.
+Jadi, Python tidak benar-benar multithreaded. Tapi apa itu utas? Apa itu proses? Dalam
+bagian berikut, kami akan memperkenalkan dua konsep dasar ini dan bagaimana mereka
+ditangani oleh bahasa pemrograman Python.
+\subsection{Proses dan utas}
+Utas dapat dibandingkan dengan proses yang ringan, dalam arti bahwa mereka menawarkan manfaat yang serupa untuk proses, tanpa, bagaimanapun, membutuhkan teknik komunikasi yang khas proses. Utilitas ini memungkinkan Anda untuk membagi aliran kontrol utama dari suatu program menjadi beberapa secara bersamaan menjalankan aliran kontrol. Sebagai gantinya, proses memiliki ruang pengalamatan sendiri dan sumber daya mereka sendiri. Kemudian komunikasi antar bagian kode berjalan Proses yang berbeda hanya dapat terjadi melalui mekanisme manajemen yang tepat, termasuk pipa, kode FIFO, kotak surat, area memori bersama, dan menyampaikan pesan. Utas, di sisi lain, memungkinkan pembuatan bagian bersamaan dari program, di mana setiap bagian dapat mengakses ruang alamat, variabel, dan konstanta yang sama.
+\subsection{Praktek}
+\begin{enumerate}
+	\item do something
+    \lstinputlisting[firstline=8, lastline=12]{src/kelompok1/do_something.py}
+	\hfill\break
+	\item serial test
+	\hfill\break
+	\lstinputlisting[firstline=8, lastline=22]{src/kelompok1/serial_test.py}
+	\item multithreading test
+	\hfill\break
+	\lstinputlisting[firstline=8, lastline=30]{src/kelompok1/multithreading_test.py}
+	\item multiprocessing test
+	\hfill\break
+	\lstinputlisting[firstline=8, lastline=30]{src/kelompok1/multiprocessing_testpy.py}
+\end{enumerate}
+\subsection{Percobaan}
+\begin{enumerate}
+	\item Menjalankan Serial Test
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/kelompok1/1/tomy/test1.PNG}
+		\centering
+		\caption{Menjalankan Serial Test}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/kelompok1/1/tomy/hasil1.PNG}
+		\centering
+		\caption{Hasil Serial Test}
+	\end{figure}
+    \item Menjalankan Multithreading Test
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/kelompok1/1/tomy/test2.PNG}
+		\centering
+		\caption{Menjalankan Multithreading Test}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/kelompok1/1/tomy/hasil2.PNG}
+		\centering
+		\caption{Hasil Multithreading Test}
+	\end{figure}
+    \item Menjalankan Multiprocessing Test
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/kelompok1/1/tomy/test3.PNG}
+		\centering
+		\caption{Menjalankan Multiprocessing Test}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/kelompok1/1/tomy/hasil3.PNG}
+		\centering
+		\caption{Hasil Multiprocessing Test}
+	\end{figure}
+\end{enumerate}
+\subsection{Bukti Tidak Plagiat}
+\begin{figure}[H]
+	\includegraphics[width=4cm]{figures/kelompok1/1/tomy/plagiat_tomy_1.PNG}
+	\centering
+	\caption{Bukti Tidak Melakukan Plagiat 1}
+    \includegraphics[width=4cm]{figures/kelompok1/1/tomy/plagiat_tomy_2.PNG}
+	\centering
+	\caption{Bukti Tidak Melakukan Plagiat 2}
+\end{figure}
