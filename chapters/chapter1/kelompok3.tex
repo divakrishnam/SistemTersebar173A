@@ -180,6 +180,56 @@ Python interpreter sudah menyediakan sistem bantuan yang valid.
         \caption{Hasil Dari abs document}
     \end{figure}
 \end{enumerate}
+\section{1174026 - Felix Lase}
+\subsection{Syntax}
+\hfill\break
+Python tidak mengadopsi terminator pernyataan, dan blok kode ditentukan melalui
+lekukan. Pernyataan yang mengharapkan tingkat indentasi harus diakhiri dengan tanda titik dua (:). Ini mengarah
+sebagai berikut:
+\begin{itemize}
+    \item Kode Python lebih jelas dan lebih mudah dibaca.
+    \item Struktur program selalu bertepatan dengan indentasi.
+    \item Lekukan yang buruk dapat menyebabkan kesalahan.
+\end{itemize}
+\lstinputlisting[firstline=9, lastline=13]{src/kelompok3/1/quick.py}
+
+\subsection{Comments}
+\hfill\break
+Komentar dimulai dengan tanda pagar  dan berada pada satu baris:
+\begin{itemize}
+    \item  komentar satu baris
+\end{itemize}
+String multi-baris digunakan untuk komentar multi-baris:
+\begin{itemize}
+    \item "" "baris pertama dari komentar multi-baris
+baris kedua dari komentar multi-baris. "" "
+\end{itemize}
+
+\subsection{Assignments}
+\hfill\break
+Tugas dibuat dengan simbol sama dengan (=). Untuk tes persamaan, jumlah yang sama (==)
+digunakan. Anda dapat menambah dan mengurangi nilai menggunakan operator + = dan - =, diikuti oleh
+sebuah tambahan. Ini berfungsi dengan banyak jenis data, termasuk string. Anda dapat menetapkan dan
+gunakan beberapa variabel pada baris yang sama.
+\lstinputlisting[firstline=15, lastline=21]{src/kelompok3/1/quick.py}
+
+\subsection{Data types}
+\hfill\break
+Struktur paling signifikan dalam Python adalah daftar, tupel, dan kamus. Set telah
+diintegrasikan ke dalam Python sejak versi 2.5 (versi sebelumnya tersedia di set
+Perpustakaan):
+\begin{itemize}
+    \item List :Ini mirip dengan array satu dimensi, tetapi Anda dapat membuat daftar itu
+mengandung daftar lain.
+    \item Dictionaries : Ini adalah array yang berisi pasangan kunci dan nilai-nilai (tabel hash).
+    \item Tuples : Ini adalah objek mono-dimensi abadi.
+\end{itemize}
+\begin{enumerate}
+\item List
+\lstinputlisting[firstline=24, lastline=30]{src/kelompok3/1/quick.py}
+\item Dictionaries
+\lstinputlisting[firstline=32, lastline=36]{src/kelompok3/1/quick.py}
+\end{enumerate}
 
 \section{npm - nama}
 \subsection{kalo perlu}
