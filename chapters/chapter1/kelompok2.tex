@@ -123,18 +123,38 @@ Akses memori dalam sistem memori bersama adalah sebagai berikut :
 \end{figure}
 
 \subsection{Distributed Memory}
-
+ Dalam sistem dengan memori terdistribusi, memori dikaitkan dengan masing-masing prosesor dan sebuah prosesor hanya mampu mengatasi memori sendiri. Beberapa penulis menyebut jenis sistem sebagai multicomputer suatu, mencerminkan fakta bahwa unsur-unsur dari sistem ini adalah, sendiri, sistem yang kecil dan lengkap dari prosesor dan memori, seperti yang Anda lihat pada diagram berikut:
 \begin{figure}[H]
 	\includegraphics[width=4cm]{figures/kelompok2/chapter1/8.png}
 	\centering
 	\caption{Distributed Memory.}
 \end{figure}
+\noindent
+organisasi semacam ini memiliki beberapa keunggulan:
+
+\begin{enumerate}
+	\item Tidak ada konflik di tingkat bus komunikasi atau switch. Setiap prosesor dapat menggunakan bandwidth penuh memori lokal mereka sendiri tanpa campur tangan dari prosesor lainnya.
+	\item Kurangnya sarana bus umum yang tidak ada batas intrinsik untuk jumlah prosesor. Ukuran sistem ini hanya dibatasi oleh jaringan yang digunakan untuk menghubungkan prosesor.
+	\item Tidak ada masalah dengan koherensi cache. Setiap prosesor bertanggung jawab untuk data sendiri dan tidak harus khawatir tentang upgrade salinan apapun.
+
+Kerugian utama adalah bahwa komunikasi antara prosesor lebih sulit untuk menerapkan. Jika prosesor membutuhkan data dalam memori prosesor lain, maka dua prosesor tidak harus selalu bertukar pesan melalui protokol pesan-lewat. Ini memperkenalkan dua sumber perlambatan: untuk membangun dan mengirim pesan dari satu prosesor ke yang lain membutuhkan waktu, dan juga, setiap prosesor harus dihentikan untuk mengelola pesan yang diterima dari prosesor lainnya. Sebuah program yang dirancang untuk bekerja pada mesin memori terdistribusi harus diselenggarakan sebagai satu set tugas independen yang berkomunikasi melaluipesan:
+\end{enumerate}
 
 \begin{figure}[H]
 	\includegraphics[width=4cm]{figures/kelompok2/chapter1/9.png}
 	\centering
 	\caption{Distributed Memory 2.}
 \end{figure}
+
+\noindent
+Fitur utama dari sistem memori terdistribusi adalah sebagai berikut:
+
+\begin{enumerate}
+	\item Memori secara fisik didistribusikan antara prosesor; setiap memori lokal secara langsung dapat diakses hanya dengan prosesor.
+	\item Sinkronisasi dicapai dengan memindahkan data (bahkan jika itu hanya pesan itu sendiri) antara prosesor (komunikasi).
+	\item Subdivisi data dalam kenangan lokal mempengaruhi kinerja mesin-adalah penting untuk membuat subdivisi akurat, sehingga dapat meminimalkan komunikasi antara CPU. Selain itu, prosesor yang koordinat operasi ini dekomposisi dan komposisi harus berkomunikasi secara efektif dengan prosesor yang beroperasi pada bagian-bagian individu dari struktur data.
+         \item Protokol message-passing digunakan sehingga CPU dapat berkomunikasi satu sama lain melalui pertukaran paket data. Pesan adalah unit diskrit informasi, dalam arti bahwa mereka memiliki identitas yang jelas, sehingga selalu mungkin untuk membedakan mereka dari satu sama lain.
+
 
 \subsection{MPP}
 
