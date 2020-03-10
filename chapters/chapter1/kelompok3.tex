@@ -44,6 +44,51 @@ Model pesan lewat biasanya diterapkan dalam kasus di mana setiap prosesor memili
 \end{figure}
 
 
+\section{1174008 - Arjun Yuda Firwanda}
+\subsection{Komputasi Paralel}
+\hfill\break
+Pertumbuhan daya komputasi yang disediakan oleh komputer modern telah mengakibatkan kami menghadapi masalah komputasi yang semakin kompleks dalam jangka waktu yang relatif singkat. Sampai awal 2000-an, kompleksitas ditangani dengan meningkatkan jumlah transistor serta frekuensi clock dari sistem prosesor tunggal, yang mencapai puncak 3,5-4 GHz. Namun, peningkatan jumlah transistor menyebabkan peningkatan eksponensial dari daya yang dihabiskan oleh prosesor itu sendiri.
+
+\hfill\break
+\subsection{Taksonomi Flynn }
+\hfill\break
+Taksonomi Flynn adalah sistem untuk mengklasifikasikan arsitektur komputer. Ini didasarkan pada dua konsep utama:
+\begin{itemize}
+	\item Alur instruksi: Suatu sistem dengan n CPU memiliki n penghitung program dan sesuai dengan penghitung program.
+	\item Aliran data: Program yang menghitung fungsi pada daftar data memiliki aliran data.
+\end{itemize}
+\hfill\break
+    \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/arjun1.png}
+        \centering
+        \caption{tf}
+    \end{figure}
+Ada empat kategori mesin paralel: Instruksi Tunggal, Data Tunggal (SISD), Data Instruksi Berganda (SIMD), Instruksi Berganda Data Tunggal (MISD), dan Data Instruksi Berganda Banyak (MIMD).
+
+
+\subsection{Single Instruction Single Data}
+\hfill\break
+Single Instruction Single Data (SISD) Sistem komputasi SISD seperti mesin von Neumann, yang merupakan mesin uniprocessor. 
+Dalam siklus clock, CPU menjalankan operasi berikut:
+\begin{itemize}
+	\item Fetch: CPU mengambil data dan instruksi dari area memori, yang disebut register.
+	\item Decode: CPU menerjemahkan instruksi.
+	\item Execute: Instruksi dilakukan pada data. Hasil operasi disimpan dalam register lain.
+\end{itemize}
+\hfill\break
+    \begin{figure}[H]
+        \includegraphics[width=4cm]{figures/kelompok3/1/arjun2.png}
+        \centering
+        \caption{sisd}
+    \end{figure}
+\hfill\break
+Elemen utama dari arsitektur ini (yaitu, arsitektur von Neumann) adalah sebagai berikut:
+\begin{itemize}
+	\item Unit memori pusat: Ini digunakan untuk menyimpan instruksi dan data program.
+	\item CPU: Ini digunakan untuk mendapatkan instruksi dan / atau data dari unit memori, yang menerjemahkan instruksi dan secara berurutan mengimplementasikannya.
+	\item Sistem I atau  O: Ini mengacu pada data input dan output dari program..
+\end{itemize}
+
 \section{1174027 - Harun Ar - Rasyid}
 \subsection{Introducing Python}
 \hfill\break
