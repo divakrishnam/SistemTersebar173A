@@ -157,10 +157,26 @@ Fitur utama dari sistem memori terdistribusi adalah sebagai berikut:
 
 
 \subsection{MPP}
+mesin MPP terdiri dari ratusan prosesor (yang dapat sebagai besar sebagai ratusan ribu prosesor di beberapa mesin) yang terhubung oleh jaringan komunikasi. Komputer tercepat di dunia didasarkan pada arsitektur ini; beberapa contoh dari sistem arsitektur ini Earth Simulator, Blue Gene, ASCI White, ASCI Merah, dan ASCI Purple dan Red Storm-storm.
 
 \subsection{Clusters of Workstations}
+\item Sistem pengolahan didasarkan pada komputer klasik yang dihubungkan oleh jaringan komunikasi. cluster komputasi jatuh ke dalam klasifikasi ini.
+\item Dalam arsitektur cluster, kita mendefinisikan node sebagai unit komputasi tunggal yang mengambil bagian dalam cluster. Untuk pengguna, cluster sepenuhnya transparan-semua perangkat keras dan perangkat lunak kompleksitas bertopeng dan data dan aplikasi yang dibuat dapat diakses seolah-olah mereka semua dari node tunggal.
+\noindent Di sini, kami telah mengidentifikasi tiga jenis kelompok:
+\item Gagal-lebih klaster: Dalam hal ini, kegiatan node terus dipantau, dan ketika salah satu berhenti bekerja, komputer lain mengambil alih jawab kegiatan tersebut. Tujuannya adalah untuk memastikan layanan terus menerus karena redundansi dari arsitektur yang baik.
+\item Load balancing klaster: Dalam sistem ini, permintaan pekerjaan dikirim ke node yang memiliki kurang aktivitas. waktu Memastikan bahwa kurang ini diambil untuk memproses pekerjaan.
+\item Kinerja tinggi komputasi klaster: Dalam hal ini, setiap node dikonfigurasi untuk memberikan kinerja yang sangat tinggi. Proses ini juga dibagi menjadi beberapa pekerjaan di beberapa node. Pekerjaan yang diparalelkan dan akan didistribusikan ke mesin yang berbeda.
+
+
+
 
 \subsection{Heterogeneous Architectures}
+Pengenalan akselerator GPU di dunia homogen superkomputer telah mengubah sifat bagaimana superkomputer keduanya digunakan dan diprogram sekarang. Meskipun kinerja tinggi yang ditawarkan oleh GPU, mereka tidak dapat dianggap sebagai unit pengolahan otonom karena mereka harus selalu disertai dengan kombinasi CPU. Paradigma pemrograman, karena itu, adalah sangat sederhana: CPU mengambil kendali dan hitungan secara serial, menetapkan tugas untuk akselerator grafis yang, komputasi, sangat mahal dan memiliki tingkat tinggi paralelisme yang baik.
+\item Komunikasi antara CPU dan GPU dapat berlangsung, tidak hanya melalui penggunaan bus berkecepatan tinggi tetapi juga melalui berbagi satu daerah memori untuk memori fisik atau virtual. Bahkan, dalam kasus di mana kedua perangkat tidak dilengkapi dengan area memori mereka sendiri, adalah mungkin untuk mengacu pada area memori umum menggunakan perpustakaan software yang disediakan oleh berbagai model pemrograman, seperti CUDA dan OpenCL.
+\item arsitektur ini disebut arsitektur heterogen, dimana aplikasi dapat membuat struktur data dalam ruang alamat tunggal dan mengirim pekerjaan ke perangkat keras, yang sesuai untuk resolusi tugas. Beberapa tugas pengolahan dapat beroperasi dengan aman di daerah yang sama untuk menghindari masalah konsistensi data, berkat operasi atom.
+\item Jadi, terlepas dari kenyataan bahwa CPU dan GPU tampaknya tidak bekerja secara efisien bersama, dengan penggunaan arsitektur baru ini, kami dapat mengoptimalkan interaksi mereka dengan, dan kinerja, aplikasi paralel:
+
+
 
 \begin{figure}[H]
 	\includegraphics[width=4cm]{figures/kelompok2/chapter1/10.png}
