@@ -1,160 +1,103 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 28 13:24:36 2020
+Created on Tue Apr 28 11:11:03 2020
 
 @author: Sujadi
 """
 # In[]
-import threading
+import numpy as np
 
-localSchool = threading.local()
-
-
-def processStudent():
-    std = localSchool.student
-    print('Hello, %s (in %s)' % (std, threading.current_thread().name))
-
-def processThread(name):
-    localSchool.student = name
-    processStudent()
-
-t1 = threading.Thread(target=processThread, args=('Alice', ), name='Los - Angeles')
-t2 = threading.Thread(target=processThread, args=('Bob', ), name='New - York')
-
-t1.start()
-t2.start()
-
-t1.join()
-t2.join()
-
-# In[]
-import queue
-import threading
 import time
 
-
-def putting_thread(q):
-    while True:
-        print('starting thread')
-        time.sleep(10)
-        q.put(5)
-        print('put something')
-##        
-#    
-#        
-#
-q = queue.Queue()
-t = threading.Thread(target = putting_thread, args = (q,),daemon = True)
-t.start()
-
-q.put(5)
-
-
-
-print(q.get())
-print('first item gotten')
-print(q.get())
-print('finished')
-
-
-#intializing a variable to q.get()
-
-x =q.get()
-
-print(x)
-
-
-
-#difference between LIFO and FIFO
-
-
-import queue
-q = queue.Queue()
-
-for i in range(5):
-    q.put(i)
-    
-while not q.empty():
-    print(q.get(), end = '   ')
-    
-    
-print('\n')    
-    
-    
-import queue
-q = queue.LifoQueue()
-
-for i in range(5):
-    q.put(i)
-    
-while not q.empty():
-    print(q.get(), end = '   ')
-    
-    
-    
-    
-# priority queue
-
-
-import queue
-import time
-
-q = queue.PriorityQueue()
-
-q.put((1, 'Priority 1'))
-q.put((3, 'Prioirty 3'))
-q.put((4 ,'Priority 4'))
-q.put((2 ,'Priority 2'))
-
-
-
-
-for i in range(q.qsize()):
-    print(q.get()[1])
-
-# In[]
-import logging
-import random
 import threading
-import time
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='(%(threadName)-10s) %(message)s',
-                    )
-                    
-class Counter(object):
-    def __init__(self, start=0):
-        self.lock = threading.Lock()
-        self.value = start
-    def increment(self):
-        logging.debug('Waiting for lock')
-        self.lock.acquire()
-        try:
-            logging.debug('Acquired lock')
-            self.value = self.value + 1
-        finally:
-            self.lock.release()
+import os
 
-def worker(c):
-    for i in range(2):
-        pause = random.random()
-        logging.debug('Sleeping %0.02f', pause)
-        time.sleep(pause)
-        c.increment()
-    logging.debug('Done')
+def main():
+    # Perintah opsional dan input
+    
+    print("Coba Pilih mau yang mana")
+    
+    print("1. Menyapa")
+    
+    print("2. Membaca Dokumen .docx yang ada di repositori") 
+    
+    print("3. Pemesanan Makanan")
+    
+    choice = input("Nomor:")
 
-counter = Counter()
-for i in range(2):
-    t = threading.Thread(target=worker, args=(counter,))
-    t.start()
+###############################################################################
+###############################################################################
+    # Pilihannya lah
+    if choice == '1':
+        
+        localSchool = threading.local()
 
-logging.debug('Waiting for worker threads')
-main_thread = threading.currentThread()
-for t in threading.enumerate():
-    if t is not main_thread:
-        t.join()
-logging.debug('Counter: %d', counter.value)
 
+        def processStudent():
+            std = localSchool.student
+            print('Hello, %s (in %s)' % (std, threading.current_thread().name))
+
+        def processThread(name):
+            localSchool.student = name
+            processStudent()
+
+        t1 = threading.Thread(target=processThread, args=('Alice', ), name='Los Angeles')
+        t2 = threading.Thread(target=processThread, args=('Bob', ), name='New York')
+
+        t1.start()
+        t2.start()
+
+        t1.join()
+        t2.join()
+        
+    elif choice == '2':
+        
+        path = os.path
+
+        cwd = os.getcwd()
+
+        def find(p, s):
+            t = os.listdir(p)
+            for x in t:
+                a = path.join(p, x)
+                if path.isdir(a) and x[0] != '.':
+                    find(a, s)
+                elif path.isfile(a):
+                    _, name = path.split(a)
+                    if name.find(s) != -1:
+                        print(name)
+
+        find(cwd, 'do')
+    elif choice == '3':
+        def get_food(c_id):
+            print("Customer %s's food is cooking.... "%c_id)
+            time.sleep(5)
+            print("Customer %s's food is ready "%c_id)
+            print("======Ending time: " + str(time.ctime()))
+
+        def make_order(c_id):
+            print("Running Thread: " + str(threading.current_thread().name))
+            print("Customer %s's food is Ordering.... "%c_id)
+            get_food(c_id)
+
+
+        if __name__ == "__main__":
+
+            cust = 5
+            threads = []
+
+            print("======Starting time: " + str(time.ctime()))
+
+            for c in range(cust):
+                thread = threading.Thread(target=make_order, args=(c,))
+                thread.start()
+
+
+            for t in threads:
+                t.join()
+        
+main()
 # In[]
 
 import threading 
@@ -265,6 +208,7 @@ while True:
 for x in threads: 
     x.join()
 
+
 # In[]
 
 import time
@@ -372,7 +316,9 @@ if __name__ == '__main__':
 	Main()
 
 # In[]
-    
+
+# JANGAN DI RUN
+
 import random
 import threading
 import time
@@ -426,7 +372,25 @@ start_new_thread(factorial,(4, ))
 
 c = raw_input("Waiting for threads to return...\n")
 
+# In[]
 
+import time
+from threading import Thread
+
+
+def ThreadFunction(x):
+    print ("sleeping 5 sec from thread %d" % x)
+    time.sleep(5)
+    print ("finished sleeping from thread %d" % x)
+
+def Main():
+  for i in range(10):
+      myThread = Thread(target=ThreadFunction, args=(i,))
+      myThread.start()
+      
+if __name__ == "__main__":
+  Main()
+  
 # In[]
   
 import threading
@@ -434,10 +398,8 @@ import threading
 
 def MyFunction():
 	"""This is a user defined function"""
-	
-    print ("Hello World")
-	
-    return
+	print ("Hello World")
+	return
 
 
 def Main():
@@ -468,7 +430,7 @@ class AsyncWrite(threading.Thread):
     file.write(self.text + '\n')
     file.close()
     time.sleep(2)
-    print "Done! Completed storing input in a file named " + self.out 
+    print ("Done! Completed storing input in a file named " + self.out)
 
 
 def Main():
@@ -476,7 +438,7 @@ def Main():
   bg = AsyncWrite(message, 'out.txt')
   
   bg.start()
-  print "Hold on, the program is generating a file"
+  print ("Hold on, the program is generating a file")
   
 
 if __name__ == '__main__':
@@ -489,9 +451,9 @@ import time
 
 
 def MyThread(num1, num2):
-	print "Given Numbers: %s, %s" %(num1, num2)
+	print ("Given Numbers: %s, %s" %(num1, num2))
 	sum1= int(num1) + int(num2)
-	print "Result: %d" %sum1
+	print ("Result: %d" %sum1)
 	return
 
 
@@ -581,19 +543,19 @@ class myThread (threading.Thread):
         self.name = name
         self.counter = counter
     def run(self):
-        print "Starting " + self.name
+        print ("Starting " + self.name)
         # Acquire lock to synchronize thread
         threadLock.acquire()
         print_date(self.name, self.counter)
         # Release lock for the next thread
         threadLock.release()
-        print "Exiting " + self.name
+        print ("Exiting " + self.name)
 
 def print_date(threadName, counter):
     datefields = []
     today = datetime.date.today()
     datefields.append(today)
-    print "%s[%d]: %s" % ( threadName, counter, datefields[0] )
+    print ("%s[%d]: %s" % ( threadName, counter, datefields[0] ))
 
 threadLock = threading.Lock()
 threads = []
@@ -613,7 +575,7 @@ threads.append(thread2)
 # Wait for all threads to complete
 for t in threads:
     t.join()
-print "Exiting the Program!!!"
+print ("Exiting the Program!!!")
 
 # In[]
 
@@ -705,13 +667,13 @@ status = ("no response","alive but losses","alive")
 for suffix in range(20,30):
    ip = "192.168.178."+str(suffix)
    ping_out = os.popen("ping -q -c2 "+ip,"r")
-   print "... pinging ",ip
+   print ("... pinging ",ip)
    while True:
       line = ping_out.readline()
       if not line: break
       n_received = received_packages.findall(line)
       if n_received:
-         print ip + ": " + status[int(n_received[0])]
+         print (ip + ": " + status[int(n_received[0])])
          
 # In[]
         
@@ -750,7 +712,7 @@ for suffix in range(20,70):
 
 for el in check_results:
    el.join()
-   print "Status from ", el.ip,"is",el.status()
+   print ("Status from ", el.ip,"is",el.status())
    
 # In[]
    
@@ -764,14 +726,14 @@ import time
 
 
 def ThreadFunction():
-	print threading.currentThread().getName(), "Starting"
+	print (threading.currentThread().getName(), "Starting")
 	time.sleep(2)
-	print threading.currentThread().getName(), "Exiting"
+	print (threading.currentThread().getName(), "Exiting")
 
 def ServiceFunction():
-	print threading.currentThread().getName(), "Starting"
+	print (threading.currentThread().getName(), "Starting")
 	time.sleep(3)
-	print threading.currentThread().getName(), "Exiting"
+	print (threading.currentThread().getName(), "Exiting")
 
 
 def Main():
@@ -801,8 +763,8 @@ import threading
 
 lock = threading.RLock()
 
-print 'First try :', lock.acquire()
-print 'Second try:', lock.acquire(0)
+print ('First try :', lock.acquire())
+print ('Second try:', lock.acquire(0))
 
 # In[]
 
@@ -810,8 +772,8 @@ import threading
 
 lock = threading.Lock()
 
-print 'First try :', lock.acquire()
-print 'Second try:', lock.acquire(0)
+print ('First try :', lock.acquire())
+print ('Second try:', lock.acquire(0))
 
 # In[]
 
@@ -960,14 +922,6 @@ if __name__ == '__main__':
     
 # In[]
     
-## Above program has been written using multithreading module 
-## and the following one has been written in conventional 
-## way where threading module hasnot been used.
-## A comparison between the above and folling program 
-## would help the readers understand the difference 
-## a normal program and a thread program.
-
-
 import time
 
 
@@ -979,9 +933,9 @@ def PrintSquare(num):
 
 
 def PrintCube(num):
-  print("Print cubes of the given numbers")
-  for n in numbers:
-    time.sleep(0.2)
+    print("Print cubes of the given numbers")
+    for n in numbers:
+    time.sleep(2)
     print("Cube", n*n*n)
 
 
@@ -1055,66 +1009,3 @@ time.sleep(2)
 c2.start()
 time.sleep(2)
 p.start()
-
-# In[]
-
-import threading
-import time 
-
-
-tLock = threading.Lock()
-
-
-def timer(name, delay, repeat):
-  print ("Timer: " + name + " Started")
-  
-  tLock.acquire()
-  print name + " has acquired lock"
-  while repeat > 0:
-    time.sleep(delay)
-    print (name + ":" + str(time.ctime(time.time())))
-    repeat -= 1
-  print name + "is releasing the lock"
-  tLock.release()
-  print ("Timer: " + name + "Completed")
-
-  
-def Main():
-  thread1 = threading.Thread(
-    target=timer, 
-    args=("Timer1", 1, 5)
-  )
-  thread2 = threading.Thread(
-    target=timer, 
-    args=("Timer2", 2, 5)
-  )
-  thread1.start()
-  thread2.start()
-
-  print ("Main function completed")
-
-
-if __name__ == '__main__':
-  Main()
-  
-# In[]
-import os, sys
-from datetime import datetime
-path = os.path
-
-t = sys.argv[0]
-cwd, _ = path.split(t)
-
-files = os.listdir(cwd)
-
-print('      Size     Last Modified  Name')
-print('------------------------------------------------------------')
-
-for f in files:
-    f = path.join(cwd, f)
-    fsize = os.path.getsize(f)
-    c = os.path.getmtime(f)
-    mtime = datetime.fromtimestamp(c).strftime('%Y-%m-%d %H:%M')
-    flag = '/' if os.path.isdir(f) else ''
-    print('%10d  %s  %s%s' % (fsize, mtime, f, flag))
-# In[]
